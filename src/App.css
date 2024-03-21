@@ -1,0 +1,194 @@
+.container {
+  width: 396px;
+  height: 574px;
+  left: 450px;
+  /* left:300px; */
+  border-radius: 12px;
+  background-color: #F5F8FF;
+  position: relative;
+  box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.25);
+}
+
+.bar {
+  height: 48px;
+  border-radius: 12px 12px 0px 0px;
+  background-color: #5F1EBE;
+}
+
+.chatBotLogo {
+  padding: 7px 10px 0px 20px;
+}
+
+.barHeading {
+  width: 107px;
+  /* height: 26px; */
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 28.13px;
+  letter-spacing: -0.5px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.botText {
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.barRight {
+  float: right;
+  padding-top: 10px;
+}
+
+.minimizeImg {
+  margin: 0px 15px;
+}
+
+.btnBlue {
+  background-color: #3C91FF;
+  color: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  height:30px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  font-size:12px;
+}
+
+.btnGrey {
+  background-color: lightgray;
+  color: black;
+  border: 1px solid #FFFFFF;
+  border-radius: 5px;
+  height:30px;
+  /* cursor: pointer; */
+  letter-spacing: 0.3px;
+  font-size:12px;
+
+}
+.centerPanel {
+  /* height:436px; */
+  height: 449px;
+  /* height: 400px; */
+  overflow-y: auto;
+}
+
+.receivedMsgSection {
+  width: 334px;
+  /* height: 88px; */
+  /* min-height: 30px; */
+  top: 520px;
+  left: 1065px;
+  border-radius: 0px 8px 8px 8px;
+  background-color: #FFFFFF;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+  overflow: overlay;
+  padding: 8px;
+  /* padding: 1px 0px 2px 6px; */
+}
+
+.sentMsgSection {
+  width: 220px;
+  /* height: 58px; */
+  /* min-height: 30px; */
+  top: 642px;
+  left: 1412px;
+  border-radius: 8px 8px 8px 0px;
+  background-color: #D7ECFD;
+  float: right;
+  /* margin-top: 10px; */
+  margin-bottom: 10px;
+  margin-right: 15px;
+  padding: 8px;
+  /* padding: 1px 0px 4px 6px; */
+}
+
+/* .centerPanelText {
+  margin: 10px
+} */
+
+.inputSection {
+  /* width: 396px; */
+  /* height: 73px; */
+  border-radius: 0px 0px 12px 12px;
+  /* position: relative; */
+  /* top: 343px; */
+  background-color: #FFFFFF;
+  padding: 18px;
+}
+
+.msgSectionLeft {
+  border-radius: 22px;
+  border: solid 1px rgba(227, 227, 227, 1);
+  height: 37px;
+  width: 260px;
+  display: inline-block;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+  ;
+}
+
+.smileyImg {
+  padding: 7px 7px 0px 7px;
+}
+
+.source {
+  background-color: #EEF2F8;
+  font-size: 13px;
+  padding: 8px 0px 8px 8px;
+  /* margin-top: 5px; */
+}
+
+.inputBox {
+  border: none;
+  outline: none;
+  position: relative;
+  top: -6px;
+  /* font-weight: 400; */
+  font-weight: 500;
+  font-family: Roboto;
+  font-size: 16px;
+  /* color: rgba(205, 205, 205, 1); */
+  line-height: 25.6px;
+  /* width:150px; */
+  width:175px;
+}
+
+.attachmentImg {
+  float: right;
+  padding: 7px 7px 0px 0px;
+}
+
+.mic {
+  background-color: #5F1EBE;
+  width: 36px;
+  height: 36px;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 0px 12px;
+}
+
+.micImage {
+  padding: 6px;
+  cursor: pointer;
+}
+
+.sendArrow {
+  width: 36px;
+  height: 36px;
+  background-color: #3C91FF;
+  border-radius: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.sendArrowImg {
+  padding: 9px;
+}
+
+.msgSectionRight {
+  float: right;
+}
+
