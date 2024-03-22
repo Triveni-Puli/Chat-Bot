@@ -9,10 +9,12 @@ import sendArrowImg from './images/sendArrow.svg';
 import chatBotImg from './images/chatBot.svg';
 import smileyImg from './images/smiley.svg';
 import attachmentImg from './images/attachment.svg';
+import speakerImg from './images/speaker.svg';
 import './App.css';
 
 function App() {
-  const [chatHistory, setChatHistory] = useState([{ messageType: 'R', message: 'Hello! How can I assist you today?' }])
+  // const [chatHistory, setChatHistory] = useState([{ messageType: 'R', message: 'Hello! How can I assist you today?' }])
+  const [chatHistory, setChatHistory] = useState([{ messageType: 'R', message: 'The capital of China is Beijing.<br><br/><div class="source">Sources: <ol><li><a href="https://en.wikipedia.org/wiki/China">https: //en.wikipedia.org/wiki/China</a></li></ol></div>' }])
   const [message, setMessage] = useState('');
   let sessionId = useRef('');
   // let inactivityTime = function () {
@@ -38,9 +40,6 @@ function App() {
   // // console.log('Please wait...');
 
   useEffect(() => {
-    // sessionId.current = Math.random().toString(36).substring(2, 14);
-    // // sessionId.current = Math.floor(100000000 + Math.random() * 900000000)
-    // console.log("useEffect", sessionId.current);
     // callMessagingAPI("get_session_id");
     axios.post("https://4ztrb2qdny7zrjeqwkf5vnvwbm0vapyp.lambda-url.ap-south-1.on.aws/", {
       user_input: 'get_session_id',
@@ -50,13 +49,8 @@ function App() {
         "Content-Type": "text/plain",
       },
     }).then(response => {
-      // console.log("sessionid", response.data);
       sessionId.current = response.data;
-      // chatHistory.push({ messageType: 'R', message: response.data });
-      // setChatHistory([...chatHistory]);
     }).catch(err => {
-      // chatHistory.push({ messageType: 'R', message: "Sorry, we couldn't help you this time due to server issue" });
-      // setChatHistory([...chatHistory]);
     });
   }, [sessionId])
 
@@ -90,8 +84,7 @@ function App() {
     listening,
     finalTranscript,
     browserSupportsSpeechRecognition
-  } = useSpeechRecognition();
-  // } = useSpeechRecognition({ commands });
+  } = useSpeechRecognition({ commands });
 
   useEffect(() => {
     setMessage(transcript);
@@ -104,10 +97,7 @@ function App() {
   function handleChange(event) {
     setMessage(event.target.value);
   };
-  // console.log("sess2", sessionId.current);
   function callMessagingAPI(input) {
-    // axios.post("https://ltiml0gjc5.execute-api.ap-south-1.amazonaws.com/dev/conversation",{
-    // axios.post("https://bquodjtujh.execute-api.ap-south-1.amazonaws.com/dev/conversation",{
     axios.post("https://4ztrb2qdny7zrjeqwkf5vnvwbm0vapyp.lambda-url.ap-south-1.on.aws/", {
       user_input: input,
       sessionId: sessionId.current
@@ -118,7 +108,7 @@ function App() {
     }).then(response => {
       chatHistory.push({ messageType: 'R', message: response.data });
       setChatHistory([...chatHistory]);
-      handleSpeech(response.data);
+      // handleSpeech(response.data);
     }).catch(err => {
       console.log("error", err);
       chatHistory.push({ messageType: 'R', message: "Sorry, we couldn't help you this time due to server issue" });
@@ -135,7 +125,7 @@ function App() {
     }
   }
 
-  function handleConfirm(event) {
+  function handleConfirm() {
     // event.stopPropagation();
     var confirmButton = document.getElementsByClassName("btnBlue");
     if (confirmButton[0]) {
@@ -152,7 +142,9 @@ function App() {
     }
   }
 
-  function handleSpeech(msg = "") {
+  function handleSpeech(event) {
+    event.stopPropagation();
+    var msg = event.target.previousSibling.innerText ;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(stripHtml(msg).result);
     const voices = speechSynthesis.getVoices();
@@ -179,7 +171,10 @@ function App() {
           chatHistory.map((msgRow, index) => {
             return <>
               {msgRow.messageType === "R" &&
+              <>
                   <div id="receivedMsg" className="receivedMsgSection" dangerouslySetInnerHTML={{ __html: msgRow.message }} />
+                  <img src={speakerImg} className='speakerImg' onClick={handleSpeech} />
+              </>
               }
               {msgRow.messageType === "S" && <div className="sentMsgSection" >{msgRow.message}</div>}
             </>

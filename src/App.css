@@ -75,7 +75,8 @@
 }
 
 .receivedMsgSection {
-  width: 334px;
+  display: inline-grid;
+  width: 318px;
   /* height: 88px; */
   /* min-height: 30px; */
   top: 520px;
@@ -190,5 +191,9 @@
 
 .msgSectionRight {
   float: right;
+}
+
+.speakerImg {
+  padding-left: 5px;
 }
 
