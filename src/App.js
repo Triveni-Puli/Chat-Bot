@@ -13,8 +13,7 @@ import speakerImg from './images/speaker.svg';
 import './App.css';
 
 function App() {
-  // const [chatHistory, setChatHistory] = useState([{ messageType: 'R', message: 'Hello! How can I assist you today?' }])
-  const [chatHistory, setChatHistory] = useState([{ messageType: 'R', message: 'The capital of China is Beijing.<br><br/><div class="source">Sources: <ol><li><a href="https://en.wikipedia.org/wiki/China">https: //en.wikipedia.org/wiki/China</a></li></ol></div>' }])
+  const [chatHistory, setChatHistory] = useState([{ messageType: 'R', message: 'Hello! How can I assist you today?' }])
   const [message, setMessage] = useState('');
   let sessionId = useRef('');
   // let inactivityTime = function () {
